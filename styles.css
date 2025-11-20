@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;800&display=swap");
+
+html, body
+{
+    height: 100%;
+}
+
+.background
+{
+    display: flex;
+	flex-flow: column;
+	font-family: "Poppins", serif;
+    color: black;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        to bottom,
+        rgb(0, 255, 148) 0%,
+		rgb(0, 85, 53) 100%);
+}
+
+.title
+{
+    margin: 2rem;
+    font-family: "Poppins", serif;
+    display: flex;
+    font-size: 3vw;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+a:link
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:active
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.tabs {
+    width: 100%;
+    margin: 0 auto;/* centers the whole tab area */
+    padding: 20px;
+    box-sizing: border-box;
+    align-self: stretch;
+}
+
+/* Hide the radio buttons */
+.tabs input[type="radio"] {
+    display: none;
+}
+
+/* Tab labels */
+.tabs label {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.tabs label:hover {
+    background: #444;
+}
+
+/* Default: hide all content */
+.tab-content {
+    width: 100%;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+    border-radius: 0 6px 6px 6px;
+    box-sizing: border-box;
+    
+    display: none;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;      /* horizontal center */
+    text-align: center;       /* center text itself */
+}
+
+/* Show content when corresponding radio is checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3
+{
+    display: block;
+}
+
+/* Highlight active tab */
+#tab1:checked + label,
+#tab2:checked + label,
+#tab3:checked + label {
+    background: #7642ff;
+}
+
+.square-text {
+    width: 66vh;
+    aspect-ratio: 1/1; /* forces the block to be a perfect square */
+    
+    background: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.image-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;   /* force a perfect square */
+    object-fit: cover;      /* crop instead of stretching */
+    border-radius: 8px;     /* optional */
+}
+
+/* Fullscreen viewer background */
+#image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Hidden by default */
+#image-viewer.hidden {
+    display: none;
+}
+
+/* Displayed full image */
+#image-viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Close button */
+#close-viewer {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
