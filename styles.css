@@ -3,21 +3,21 @@
 html, body
 {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.background
-{
-    display: flex;
-	flex-flow: column;
-	font-family: "Poppins", serif;
+html {
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100dvh;  /* best on modern browsers (accounts for mobile chrome address bar) */
+    font-family: "Poppins", serif;
     color: black;
-    position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: linear-gradient(
-        to bottom,
-        rgb(0, 255, 148) 0%,
-		rgb(0, 85, 53) 100%);
+    background-color: #d6ffec
 }
 
 .title
@@ -25,9 +25,10 @@ html, body
     margin: 2rem;
     font-family: "Poppins", serif;
     display: flex;
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: 600;
     padding: 0.5rem;
+    color: rgb(29, 81, 68)
 }
 
 a:link
@@ -59,7 +60,6 @@ a:active
     margin: 0 auto;/* centers the whole tab area */
     padding: 20px;
     box-sizing: border-box;
-    align-self: stretch;
 }
 
 /* Hide the radio buttons */
@@ -70,7 +70,7 @@ a:active
 /* Tab labels */
 .tabs label {
     padding: 10px 20px;
-    background: #333;
+    background: rgba(29, 81, 68, 0.85);
     color: white;
     cursor: pointer;
     border-radius: 6px 6px 0 0;
@@ -79,23 +79,25 @@ a:active
 }
 
 .tabs label:hover {
-    background: #444;
+    background: rgba(44, 125, 104, 0.85);
 }
 
 /* Default: hide all content */
 .tab-content {
-    width: 100%;
-    padding: 20px;
-    background: #222;
+    max-width: 1400px;
+    padding: 40px;
+    background: rgba(8, 54, 13, 0.45);
     color: #fff;
     border-radius: 0 6px 6px 6px;
-    box-sizing: border-box;
+    box-sizing: fit content;
     
     display: none;
     flex-direction: column;
     justify-content: center; /* vertical center */
     align-items: center;      /* horizontal center */
     text-align: center;       /* center text itself */
+    
+    flex: 1 0 auto; /* <-- allows content to push <body> taller */
 }
 
 /* Show content when corresponding radio is checked */
@@ -110,14 +112,14 @@ a:active
 #tab1:checked + label,
 #tab2:checked + label,
 #tab3:checked + label {
-    background: #7642ff;
+    background: rgba(8, 54, 13, 0.45);
 }
 
 .square-text {
     width: 66vh;
     aspect-ratio: 1/1; /* forces the block to be a perfect square */
     
-    background: #333;
+    background: #000000;
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -130,10 +132,10 @@ a:active
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnS */
+    gap: 40px;
     width: 100%;
-    max-width: 900px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -142,6 +144,19 @@ a:active
     aspect-ratio: 1 / 1;   /* force a perfect square */
     object-fit: cover;      /* crop instead of stretching */
     border-radius: 8px;     /* optional */
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caption {
+    margin-top: 6px;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 /* Fullscreen viewer background */
