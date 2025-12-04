@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en class="background">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -11,48 +11,85 @@
             Alyssa Perez
         </div>
         <div class="tabs">
-            <input type="radio" id="tab1" name="tab" checked>
-            <label for="tab1">Artist's Statement</label>
+    <input type="radio" id="tab1" name="tab" checked>
+    <label for="tab1">Artist Statement</label>
 
-            <input type="radio" id="tab2" name="tab">
-            <label for="tab2">Gallery</label>
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">Gallery</label>
 
-            <div class="tab-content" id="content1">
-                <div class="square-text">
-                    It's easy to forget that the things that make us all different are important. Our differences are what make us unique and every person special. It's important to recognize and embrace these differences, and in some cases, look for them. Looking for these qualities in others is essential to uniting us all together.
-                    <br><br>
-                    I know how hard it can be to remember this, it's not something everyone keeps in mind at all times. People can be harsh and judgemental, but I think a culture of understanding is something everyone should strive for. The best way to practice this to become a normal part of life, though, is to start where you are. The people around you, your friends and family, are just as important to understand as anyone else. Diving deep into our closest relationships and really learning who they are is an eye-opening way for us to grow a deeper connection with those we love. Seeing them in a different light can make all the difference.
-                    <br><br>
-                    This project is about seeing those you love in a different light. These photos depict a physical difference of my own family members, but the real characteristics we learn about them are much deeper than physical appearances. I hope to inspire change in the world and the best way to do that is to start small. My goal is to inspire others to have more compassion for others and that starts within our own circles. Start small, change big.
-                    </div>
+    <div class="tab-content" id="content1"> Looking for the qualities in others that make us different is essential to uniting us all together. The world today has become divided and judgemental. We often forget how easy it is to judge, but also how harmful that can be. People are unique and special in their own ways and it’s those differences that can bring us together. <br><br> Not everyone keeps this in mind throughout daily life, though. We start to get into our own heads and reflect our judgements about ourselves onto those around us, but somehow, those judgements often fly past our close inner circles. The people we love more than ourselves. Which is why, to practice this more welcoming mindset, we need to start with those close relationships and form deeper connections with them. Seeing them in a new light can make all the difference. <br><br> This project is about seeing those you love in a different light. These photos depict a physical difference of my own family members, but the real characteristics we learn about them are much deeper than physical appearances. The abstraction in the images is symbolic of those traits we can’t see, by seeing an ordinary person in an unordinary way. In each caption, they are answering a question: what is something people assume about you that isn’t true? I hope to inspire change in the world and the best way to do that is to start small. My goal is to inspire others to have more compassion for others and that starts within our own circles. Start small, change big.
+ </div>
+
+    <div class="tab-content" id="content2">
+        <div class="image-grid">
+
+            <div class="image-item">
+                <img src="Pictures/Kayla.Edited.jpg">
+                <p class="caption">My Sister: Kayla<br><br>"People think that I'm serious, when I'm not, but they don't know me."</p>
             </div>
-            <div class="tab-content" id="content2">
-                <div class="image-grid">
-                    <img src="Pictures/Jax.Edited.jpg">
-                </div>
+
+            <div class="image-item">
+                <img src="Pictures/Andrew.Edited.jpg">
+                <p class="caption">My Brother-In-Law: Andrew<br><br>"The main thing that people would assume about me is that I am the 'quiet person', and sometimes I can be quiet, but around people that I'm familiar with, I'm not that quiet of a person."</p>
             </div>
+
+            <div class="image-item">
+                <img src="Pictures/Donelle.Edited.jpg">
+                <p class="caption">My Mom: Donelle<br><br>"I think that people think that I'm younger than I really am, but that's all that I can say because I don't know what people think!"</p>
+            </div>
+
+            <div class="image-item">
+                <img src="Pictures/Parker.Edited.jpg">
+                <p class="caption">My Brother-In-Law: Parker<br><br>"People usually assume that I've had a stroke, but I haven't."</p>
+            </div>
+
+            <div class="image-item">
+                <img src="Pictures/Lauren.Edited.jpg">
+                <p class="caption">My Sister: Lauren<br><br>"That I'm very young and therefore naive."</p>
+            </div>
+
+            <div class="image-item">
+                <img src="Pictures/Alyssa.Edited.jpg">
+                <p class="caption">Myself: Alyssa<br><br>"People think I'm very quiet, and I can be, but it's just because I'm listening."</p>
+            </div>
+
+            <div class="image-item">
+                <img src="Pictures/Brett.Edited.jpg">
+                <p class="caption">My Dad: Brett<br><br>"People assume I'm miserable and a loner, but actually I'm not and I have a loving family."</p>
+            </div>
+
+            <div class="image-item">
+                <img src="Pictures/Jaxyn.Edited.jpg">
+                <p class="caption">My Sister: Jaxyn<br><br>"People usually tell me they thought I was a mean person because sometimes I give off this unintentional mean glare."</p>
+            </div>
+
         </div>
+    </div>
+
+</div> <!-- ✔ THIS CLOSES .tabs IN THE RIGHT PLACE -->
+
         <div id="image-viewer" class="hidden">
             <span id="close-viewer">✕</span>
             <img id="viewer-img" src="img1.jpg">
         </div>
-        <script>
-document.querySelectorAll(".image-grid img").forEach(img => {
-    img.addEventListener("click", () => {
+       <script>
+document.addEventListener("click", (e) => {
+
+    // Open viewer when clicking an image
+    if (e.target.matches(".image-grid img")) {
         const viewer = document.getElementById("image-viewer");
         const viewerImg = document.getElementById("viewer-img");
 
-        viewerImg.src = img.src; // or img.dataset.full if you want separate thumbnails
+        viewerImg.src = e.target.src;
         viewer.classList.remove("hidden");
-    });
-});
+    }
 
-document.getElementById("close-viewer").addEventListener("click", () => {
-    document.getElementById("image-viewer").classList.add("hidden");
-});
+    // Close viewer when clicking the X
+    if (e.target.id === "close-viewer") {
+        document.getElementById("image-viewer").classList.add("hidden");
+    }
 
-document.getElementById("image-viewer").addEventListener("click", (e) => {
-    // If clicking background (not the image), close
+    // Close when clicking background
     if (e.target.id === "image-viewer") {
         document.getElementById("image-viewer").classList.add("hidden");
     }
